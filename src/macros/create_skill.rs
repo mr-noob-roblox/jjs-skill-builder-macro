@@ -97,6 +97,8 @@ pub fn create_skill(skill_name: &str, cancel_last: bool, is_first: bool) {
     sleep(Duration::from_millis(50));
     gui.scroll_down(100).unwrap();
 
+    sleep(Duration::from_millis(100));
+
     // cancel last
     if cancel_last {
         find_stored_image_on_screen_and_move_mouse(&mut gui, 0.8, 0.0, "cancelLast");
