@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+eframe = "0.33.0"
 egui = "0.33.0"
 msgbox = "0.7.0"
 once_cell = "1.21.3"
