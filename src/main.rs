@@ -7,12 +7,24 @@ mod utils;
 mod macros;
 use macros::*;
 
-fn main() {
-    println!("listening for F7 input");
+mod gui;
+use gui as app;
 
-    if let Err(error) = listen(callback) {
-        eprintln!("failed to listen for some reason, {:?}", error)
-    }
+use std::thread;
+
+fn main() {
+    // macro thread
+    thread::spawn(|| {
+        println!("listening for F7 input");
+
+        if let Err(error) = listen(callback) {
+            eprintln!("failed to listen for some reason, {:?}", error)
+        }
+    });
+
+    app::start().unwrap();
+
+    println!("bye!");
 }
 
 fn callback(event: Event) {
